@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/fondo">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="#C7A7A7"
+        android:layout_margin="10dp">
+
+        <!-- Título principal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GENERADOR DE LELY-FRASES"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2F0505"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Frase generada -->
+        <TextView
+            android:id="@+id/frase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aquí aparecerá la frase"
+            android:textStyle="italic"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Botón de cargar frase -->
+        <Button
+            android:id="@+id/btnMostrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Frase motivadora"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FF6F91"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:drawablePadding="10dp"/>
+
+        <!-- Contenedor para contraseña y botón menú -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+
+            <!-- Campo de contraseña -->
+            <EditText
+                android:id="@+id/txtContrasena"
+
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:backgroundTint="#FF6F91"
+                android:textColor="#000000"
+                android:layout_marginEnd="20dp"
+                android:padding="10dp"
+                android:textSize="14sp"
+                android:inputType="textPassword"/>
+
+            <!-- Botón del menú -->
+            <Button
+                android:id="@+id/btnMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menú frases"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF6F91"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:drawablePadding="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
