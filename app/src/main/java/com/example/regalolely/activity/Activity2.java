@@ -1,11 +1,10 @@
-package com.example.regalolely;
+package com.example.regalolely.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,10 +14,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
+import com.example.regalolely.conexion.AppDatabase;
+import com.example.regalolely.conexion.Conexion;
+import com.example.regalolely.conexion.dao.FraseDao;
+import com.example.regalolely.R;
+import com.example.regalolely.conexion.model.Frase;
+
 public class Activity2 extends AppCompatActivity {
 
-    private AppDatabase db;
     private FraseDao fraseDao;
+
     private Button btnVolver, btnInsertar, btnBorrarTodo;
     private EditText etFrase;
     private CheckBox cbBorrartodo;
@@ -35,17 +40,8 @@ public class Activity2 extends AppCompatActivity {
         });
 
         // Inicializar la base de datos
-        db = Room.databaseBuilder(getApplicationContext(),
-                        AppDatabase.class, "frases-database")
-                .allowMainThreadQueries() // No se recomienda en producción
-                .build();
-        fraseDao = db.fraseDao();
-
-        btnInsertar = findViewById(R.id.btnInsertar);
-        btnVolver = findViewById(R.id.btnVolver);
-        btnBorrarTodo = findViewById(R.id.btnBorrarTodo);
-        etFrase = findViewById(R.id.etFrase);
-        cbBorrartodo = findViewById(R.id.cbBorrartodo);
+        Conexion.runBBDD(this);
+        fraseDao = Conexion.getFraseDao();
 
         btnVolver.setOnClickListener(v -> {
             Intent intent = new Intent(Activity2.this, MainActivity.class);
@@ -69,5 +65,13 @@ public class Activity2 extends AppCompatActivity {
         btnBorrarTodo.setOnClickListener(v -> {
             fraseDao.deleteAllFrases();
         });
+    }
+
+    private void inicializar() {
+        btnInsertar = findViewById(R.id.btnInsertar);
+        btnVolver = findViewById(R.id.btnVolver);
+        btnBorrarTodo = findViewById(R.id.btnBorrarTodo);
+        etFrase = findViewById(R.id.etFrase);
+        cbBorrartodo = findViewById(R.id.cbBorrartodo);
     }
 }

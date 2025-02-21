@@ -1,4 +1,4 @@
-package com.example.regalolely;
+package com.example.regalolely.conexion.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

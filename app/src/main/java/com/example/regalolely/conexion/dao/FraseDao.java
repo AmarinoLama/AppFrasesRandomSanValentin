@@ -1,8 +1,10 @@
-package com.example.regalolely;
+package com.example.regalolely.conexion.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.example.regalolely.conexion.model.Frase;
 
 import java.util.List;
 

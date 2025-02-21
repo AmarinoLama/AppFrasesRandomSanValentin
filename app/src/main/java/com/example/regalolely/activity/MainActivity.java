@@ -1,22 +1,23 @@
-package com.example.regalolely;
+package com.example.regalolely.activity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.widget.TextView;
 import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
+import com.example.regalolely.conexion.Conexion;
+import com.example.regalolely.conexion.dao.FraseDao;
+import com.example.regalolely.R;
+import com.example.regalolely.conexion.model.Frase;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppDatabase db;
     private FraseDao fraseDao;
     private TextView textView, txtContrasena;
     private MediaPlayer mediaPlayer;
@@ -27,11 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Inicializar la base de datos
-        db = Room.databaseBuilder(getApplicationContext(),
-                        AppDatabase.class, "frases-database")
-                .allowMainThreadQueries() // No se recomienda en producción
-                .build();
-        fraseDao = db.fraseDao();
+        Conexion.runBBDD(this);
+        fraseDao = Conexion.getFraseDao();
 
         // Inicializa el MediaPlayer con el archivo de sonido
         mediaPlayer = MediaPlayer.create(this, R.raw.musica);
