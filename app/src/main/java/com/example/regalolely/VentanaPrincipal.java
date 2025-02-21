@@ -1,4 +1,4 @@
-package com.example.regalolely.activity;
+package com.example.regalolely;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -8,51 +8,51 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 import com.example.regalolely.conexion.Conexion;
 import com.example.regalolely.conexion.dao.FraseDao;
-import com.example.regalolely.R;
 import com.example.regalolely.conexion.model.Frase;
-
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class VentanaPrincipal extends AppCompatActivity {
 
     private FraseDao fraseDao;
     private TextView textView, txtContrasena;
     private MediaPlayer mediaPlayer;
+    private Toolbar toolbar;
+    private Button btnMenu, btnMostrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.ventana_principal);
+
+        inicializar();
+
+        // Configurar el menú principal
+        setSupportActionBar(toolbar);
+        addMenuProvider(new MenuHandler(this));
 
         // Inicializar la base de datos
         Conexion.runBBDD(this);
         fraseDao = Conexion.getFraseDao();
 
-        // Inicializa el MediaPlayer con el archivo de sonido
+        // Inicializa el MediaPlayer con el archivo de sonido y lo reproduce
         mediaPlayer = MediaPlayer.create(this, R.raw.musica);
         mediaPlayer.setLooping(true);
-
-        // Inicia la reproducción del sonido
         mediaPlayer.start();
 
         cargarFrases();
-
-        textView = findViewById(R.id.frase);
-        txtContrasena = findViewById(R.id.txtContrasena);
-        Button btnMenu = findViewById(R.id.btnMenu);
-        Button btnMostrar = findViewById(R.id.btnMostrar);
 
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (txtContrasena.getText().toString().equals("amarinolama")) {
-                    Intent intent = new Intent(MainActivity.this, Activity2.class);
+                    Intent intent = new Intent(VentanaPrincipal.this, VentanaCrud.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VentanaPrincipal.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
                     txtContrasena.setText("");
                 }
             }
@@ -77,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
+    }
+
+    private void inicializar() {
+        textView = findViewById(R.id.frase);
+        txtContrasena = findViewById(R.id.txtContrasena);
+        btnMenu = findViewById(R.id.btnMenu);
+        btnMostrar = findViewById(R.id.btnMostrar);
+        toolbar = findViewById(R.id.toolbar);
     }
 
     private void cargarFrases() {

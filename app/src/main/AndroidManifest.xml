@@ -13,10 +13,10 @@
         android:theme="@style/Theme.RegaloLely"
         tools:targetApi="31">
         <activity
-            android:name=".activity.Activity2"
+            android:name=".VentanaCrud"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".VentanaPrincipal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

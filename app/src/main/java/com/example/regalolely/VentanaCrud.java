@@ -1,4 +1,4 @@
-package com.example.regalolely.activity;
+package com.example.regalolely;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,15 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.room.Room;
 
-import com.example.regalolely.conexion.AppDatabase;
 import com.example.regalolely.conexion.Conexion;
 import com.example.regalolely.conexion.dao.FraseDao;
-import com.example.regalolely.R;
 import com.example.regalolely.conexion.model.Frase;
 
-public class Activity2 extends AppCompatActivity {
+public class VentanaCrud extends AppCompatActivity {
 
     private FraseDao fraseDao;
 
@@ -31,20 +28,14 @@ public class Activity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_2);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        setContentView(R.layout.ventana_crud);
 
         // Inicializar la base de datos
         Conexion.runBBDD(this);
         fraseDao = Conexion.getFraseDao();
 
         btnVolver.setOnClickListener(v -> {
-            Intent intent = new Intent(Activity2.this, MainActivity.class);
+            Intent intent = new Intent(VentanaCrud.this, VentanaPrincipal.class);
             startActivity(intent);
         });
 
