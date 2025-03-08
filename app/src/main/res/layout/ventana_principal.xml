@@ -65,41 +65,7 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
-        <!-- Contenedor para contraseña y botón menú -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <!-- Campo de contraseña -->
-            <EditText
-                android:id="@+id/txtContrasena"
-
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:backgroundTint="#FF6F91"
-                android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:padding="10dp"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-
-            <!-- Botón del menú -->
-            <Button
-                android:id="@+id/btnMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="#FF6F91"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:text="Menú frases"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
-        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

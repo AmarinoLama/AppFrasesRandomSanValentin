@@ -7,6 +7,9 @@
         android:title="Iniciar Sesión"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/op_menuPrincipal"
+        android:title="Menu Principal"/>
+    <item
         android:id="@+id/op_editarFrases"
         android:title="Editar Frases"/>
     <item
