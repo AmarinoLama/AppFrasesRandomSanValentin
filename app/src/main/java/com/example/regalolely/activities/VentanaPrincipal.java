@@ -1,4 +1,4 @@
-package com.example.regalolely;
+package com.example.regalolely.activities;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
+
+import com.example.regalolely.MenuHandler;
+import com.example.regalolely.R;
 import com.example.regalolely.conexion.Conexion;
 import com.example.regalolely.conexion.dao.FraseDao;
 import com.example.regalolely.conexion.model.Frase;

@@ -1,6 +1,7 @@
 package com.example.regalolely;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -8,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.MenuProvider;
+
+import com.example.regalolely.activities.ListadoFrases;
+import com.example.regalolely.activities.VentanaCrud;
 
 public class MenuHandler implements MenuProvider {
 
@@ -30,7 +34,13 @@ public class MenuHandler implements MenuProvider {
             return true;
         }
         if (id == R.id.op_editarFrases) {
-            Toast.makeText(context, "Opción 2", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, VentanaCrud.class);
+            context.startActivity(intent);
+            return true;
+        }
+        if (id == R.id.op_listadoFrases) {
+            Intent intent = new Intent(context, ListadoFrases.class);
+            context.startActivity(intent);
             return true;
         }
         if (id == R.id.op_controlarMusica) {

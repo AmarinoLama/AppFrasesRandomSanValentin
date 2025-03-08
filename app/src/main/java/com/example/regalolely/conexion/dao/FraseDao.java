@@ -21,4 +21,7 @@ public interface FraseDao {
 
     @Query("DELETE FROM frases")
     void deleteAllFrases();
+
+    @Query("DELETE FROM frases WHERE id = :id")
+    void deleteFrase(int id);
 }

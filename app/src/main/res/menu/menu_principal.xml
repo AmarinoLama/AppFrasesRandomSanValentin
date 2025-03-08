@@ -10,6 +10,9 @@
         android:id="@+id/op_editarFrases"
         android:title="Editar Frases"/>
     <item
+        android:id="@+id/op_listadoFrases"
+        android:title="Listado Frases" />
+    <item
         android:id="@+id/op_controlarMusica"
         android:title="Controlar Música" />
     <item

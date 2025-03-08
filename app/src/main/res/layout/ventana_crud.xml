@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="60dp"
     android:gravity="center">
 
-    <EditText
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:background="#FF6F91"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Editar Frases" />
+
+    <EditText
         android:id="@+id/etFrase"
-        android:hint="Escribe una frase"/>
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Escribe una frase"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFrase">
 
         <Button
             android:id="@+id/btnInsertar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Insertar Frase"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:text="Insertar Frase" />
 
         <Button
             android:id="@+id/btnVolver"
@@ -38,24 +53,28 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
             android:id="@+id/btnBorrarTodo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Borrar todo"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:text="Borrar todo" />
 
         <CheckBox
+            android:id="@+id/cbBorrartodo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cbBorrartodo"
             android:layout_marginTop="20dp"
             android:text="Activar borrar" />
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
