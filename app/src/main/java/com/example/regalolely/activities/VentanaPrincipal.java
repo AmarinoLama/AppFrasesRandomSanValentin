@@ -7,7 +7,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
-import com.example.regalolely.MenuHandler;
+import com.example.regalolely.menu.MenuHandler;
 import com.example.regalolely.R;
 import com.example.regalolely.conexion.Conexion;
 import com.example.regalolely.conexion.dao.FraseDao;
@@ -54,12 +54,11 @@ public class VentanaPrincipal extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // Detén el sonido y libera recursos cuando la actividad se destruya
+    protected void onPause() {
+        super.onPause();
+        // Pausa el sonido cuando la actividad se pausa
         if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
+            mediaPlayer.pause();
         }
     }
 

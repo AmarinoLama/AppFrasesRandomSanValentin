@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.regalolely.MenuHandler;
+import com.example.regalolely.menu.MenuHandler;
 import com.example.regalolely.R;
 import com.example.regalolely.conexion.Conexion;
 import com.example.regalolely.conexion.dao.FraseDao;

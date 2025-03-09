@@ -16,9 +16,6 @@
         android:id="@+id/op_listadoFrases"
         android:title="Listado Frases" />
     <item
-        android:id="@+id/op_controlarMusica"
-        android:title="Controlar Música" />
-    <item
-        android:id="@+id/op_botonPanico"
-        android:title="Botón del Pánico" />
+        android:id="@+id/op_ajustes"
+        android:title="Ajustes" />
 </menu>

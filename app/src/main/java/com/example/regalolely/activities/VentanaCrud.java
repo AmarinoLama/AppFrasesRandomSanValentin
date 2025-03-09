@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.regalolely.MenuHandler;
+import com.example.regalolely.menu.MenuHandler;
 import com.example.regalolely.R;
 import com.example.regalolely.conexion.Conexion;
 import com.example.regalolely.conexion.dao.FraseDao;
