@@ -41,14 +41,14 @@ public class EditPreferences extends AppCompatActivity {
 
         inicializar();
 
+        btn_escaner.setOnClickListener(v -> {
+            Helpers.scanearQR();
+        });
+
         Helpers.inicializarQRLauncher(this, resultadoEscaner, result -> {
             resultadoEscaner[0] = result;
             System.out.println("Salida escaner: " + resultadoEscaner[0]);
             txt_salidaEscaner.setText(resultadoEscaner[0]);
-        });
-
-        btn_escaner.setOnClickListener(v -> {
-            Helpers.scanearQR();
         });
 
         getSupportFragmentManager()
