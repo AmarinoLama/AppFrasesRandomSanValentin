@@ -11,7 +11,7 @@
         android:title="Menu Principal"/>
     <item
         android:id="@+id/op_editarFrases"
-        android:title="Editar Frases"/>
+        android:title="Manejar Frases"/>
     <item
         android:id="@+id/op_listadoFrases"
         android:title="Listado Frases" />

@@ -15,7 +15,8 @@ public class Conexion {
         if (db == null) {
             db = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class, "frases-database")
-                    .allowMainThreadQueries() // No se recomienda en producción
+                    .allowMainThreadQueries() // No recomendado en producción
+                    .fallbackToDestructiveMigration()
                     .build();
             fraseDao = db.fraseDao();
         }

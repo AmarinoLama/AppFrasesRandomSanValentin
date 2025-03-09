@@ -1,4 +1,6 @@
 package com.example.regalolely.activities;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,7 +86,7 @@ public class ListadoFrases extends AppCompatActivity {
         class MyViewHolder extends RecyclerView.ViewHolder {
 
             // Variables que se necesitan para el fragment
-            TextView txtIdFrase, txtFrase;
+            TextView txtIdFrase, txtFrase, txtAutorFrase;
             Button btnEditar, btnEliminar;
 
             // Constructor para inicializar las variables
@@ -92,6 +94,7 @@ public class ListadoFrases extends AppCompatActivity {
                 super(itemView);
                 txtIdFrase = itemView.findViewById(R.id.txtIdFrase);
                 txtFrase = itemView.findViewById(R.id.txtFrase);
+                txtAutorFrase = itemView.findViewById(R.id.txtAutorFrase);
                 btnEditar = itemView.findViewById(R.id.btnEditar);
                 btnEliminar = itemView.findViewById(R.id.btnEliminar);
             }
@@ -102,6 +105,10 @@ public class ListadoFrases extends AppCompatActivity {
 
             public TextView getTxtFrase() {
                 return txtFrase;
+            }
+
+            public TextView getTxtAutorFrase() {
+                return txtAutorFrase;
             }
 
             public Button getBtnEditar() {
@@ -128,9 +135,15 @@ public class ListadoFrases extends AppCompatActivity {
 
             myViewHolder.getTxtIdFrase().setText(String.valueOf(frase.getId()));
             myViewHolder.getTxtFrase().setText(frase.getFrase());
+            myViewHolder.getTxtAutorFrase().setText(frase.getAutor());
 
             myViewHolder.getBtnEditar().setOnClickListener((view) -> {
-                Toast.makeText(ListadoFrases.this, "Editar", Toast.LENGTH_SHORT).show();
+                SharedPreferences sp = getSharedPreferences(Login.SHARED_PREFERENCES, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putInt(EditarFrase.ID_FRASE, frase.getId());
+                editor.apply();
+                Intent intent = new Intent(ListadoFrases.this, EditarFrase.class);
+                startActivity(intent);
             });
 
             myViewHolder.getBtnEliminar().setOnClickListener((view) -> {

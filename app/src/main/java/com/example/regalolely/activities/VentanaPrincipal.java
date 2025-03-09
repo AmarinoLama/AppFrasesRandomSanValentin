@@ -1,5 +1,6 @@
 package com.example.regalolely.activities;
 
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,11 +8,17 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKey;
+
 import com.example.regalolely.menu.MenuHandler;
 import com.example.regalolely.R;
 import com.example.regalolely.conexion.Conexion;
 import com.example.regalolely.conexion.dao.FraseDao;
 import com.example.regalolely.conexion.model.Frase;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 public class VentanaPrincipal extends AppCompatActivity {
 
@@ -51,6 +58,8 @@ public class VentanaPrincipal extends AppCompatActivity {
             sb.append(frase.getFrase());
             textView.setText(sb.toString());
         });
+
+
     }
 
     @Override

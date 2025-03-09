@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.material.v160)
     implementation(libs.preference)
+    implementation(libs.security.crypto)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

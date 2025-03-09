@@ -30,6 +30,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFrase" />
 
+    <TextView
+        android:id="@+id/txtSeparacion"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:text=" - "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtIdFrase"
+        app:layout_constraintTop_toBottomOf="@+id/txtFrase"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/txtAutorFrase"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:text="Autor de la frase"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtSeparacion" />
+
     <Button
         android:id="@+id/btnEditar"
         android:layout_width="wrap_content"

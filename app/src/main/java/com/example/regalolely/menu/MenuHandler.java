@@ -12,6 +12,7 @@ import androidx.core.view.MenuProvider;
 
 import com.example.regalolely.R;
 import com.example.regalolely.activities.ListadoFrases;
+import com.example.regalolely.activities.Login;
 import com.example.regalolely.activities.VentanaCrud;
 import com.example.regalolely.activities.VentanaPrincipal;
 import com.example.regalolely.editPreferences.EditPreferences;
@@ -33,7 +34,8 @@ public class MenuHandler implements MenuProvider {
     public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         if (id == R.id.op_inicioSesion) {
-            Toast.makeText(context, "Próximamente", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, Login.class);
+            context.startActivity(intent);
             return true;
         }
         if (id == R.id.op_editarFrases) {
