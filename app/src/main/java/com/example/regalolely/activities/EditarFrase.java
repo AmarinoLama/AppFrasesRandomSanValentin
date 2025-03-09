@@ -28,7 +28,7 @@ public class EditarFrase extends AppCompatActivity {
     public static final String ID_FRASE = "id_frase";
 
     private TextView txt_frase, txt_autor, txt_idFrase;
-    private Button btn_asignarme, btn_volver;
+    private Button btn_asignarme, btn_volver, btn_cambiar;
     private EditText edt_frase;
     private Toolbar toolbar;
 
@@ -54,14 +54,6 @@ public class EditarFrase extends AppCompatActivity {
 
         inicializar();
 
-        edt_frase.setOnEditorActionListener((v, actionId, event) -> {
-            String newFrase = edt_frase.getText().toString();
-            fraseCargada.setFrase(newFrase);
-            fraseDao.updateFrase(fraseCargada);
-            cargarVM();
-            return true;
-        });
-
         cargarVM();
 
         SOL();
@@ -74,6 +66,7 @@ public class EditarFrase extends AppCompatActivity {
         btn_asignarme = findViewById(R.id.btn_asignarme);
         btn_volver = findViewById(R.id.btn_volver);
         edt_frase = findViewById(R.id.edt_frase);
+        btn_cambiar = findViewById(R.id.btn_cambiar);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -91,6 +84,13 @@ public class EditarFrase extends AppCompatActivity {
         btn_volver.setOnClickListener(v -> {
             Intent intent = new Intent(this, ListadoFrases.class);
             startActivity(intent);
+        });
+
+        btn_cambiar.setOnClickListener(v -> {
+            String newFrase = edt_frase.getText().toString();
+            fraseCargada.setFrase(newFrase);
+            fraseDao.updateFrase(fraseCargada);
+            cargarVM();
         });
     }
 
